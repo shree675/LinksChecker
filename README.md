@@ -1,5 +1,5 @@
 # LinksChecker
-<img src="https://img.shields.io/github/workflow/status/shree675/LinksChecker/Rust"></img>
+[![Rust](https://github.com/shree675/LinksChecker/actions/workflows/rust.yml/badge.svg)](https://github.com/shree675/LinksChecker/actions/workflows/rust.yml)
 
 *lync* for links
 
