@@ -4,7 +4,7 @@ use std::process::Command; // Run programs
 
 #[test]
 fn invalid_input_url_1() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cmd = Command::cargo_bin("linch")?;
+    let mut cmd = Command::cargo_bin("lync")?;
 
     cmd.arg("-s").arg("www.abc.com");
     cmd.assert()
@@ -16,7 +16,7 @@ fn invalid_input_url_1() -> Result<(), Box<dyn std::error::Error>> {
 
 #[test]
 fn invalid_input_url_2() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cmd = Command::cargo_bin("linch")?;
+    let mut cmd = Command::cargo_bin("lync")?;
 
     cmd.arg("-s").arg("htttps://www.google.com");
     cmd.assert()
@@ -28,7 +28,7 @@ fn invalid_input_url_2() -> Result<(), Box<dyn std::error::Error>> {
 
 #[test]
 fn invalid_input_host() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cmd = Command::cargo_bin("linch")?;
+    let mut cmd = Command::cargo_bin("lync")?;
 
     cmd.arg("-s").arg("https://www.abc__.com");
     cmd.assert()
@@ -40,7 +40,7 @@ fn invalid_input_host() -> Result<(), Box<dyn std::error::Error>> {
 
 #[test]
 fn invalid_argument() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cmd = Command::cargo_bin("linch")?;
+    let mut cmd = Command::cargo_bin("lync")?;
 
     cmd.arg("ijk");
     cmd.assert().failure().stderr(predicate::str::contains(
@@ -52,7 +52,7 @@ fn invalid_argument() -> Result<(), Box<dyn std::error::Error>> {
 
 #[test]
 fn no_arguments() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cmd = Command::cargo_bin("linch")?;
+    let mut cmd = Command::cargo_bin("lync")?;
 
     cmd.arg("");
     cmd.assert().failure().stderr(predicate::str::contains(
@@ -64,7 +64,7 @@ fn no_arguments() -> Result<(), Box<dyn std::error::Error>> {
 
 #[test]
 fn multiple_arguments_1() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cmd = Command::cargo_bin("linch")?;
+    let mut cmd = Command::cargo_bin("lync")?;
 
     cmd.arg("-s")
         .arg("https://www.google.com")
