@@ -54,14 +54,14 @@ fn print_details(site: String) {
     let hostname = &site.as_str()[8..];
 
     panic::set_hook(Box::new(|_info| {}));
-    let _panics = panic::catch_unwind(|| {
+    let panics = panic::catch_unwind(|| {
         let ips: Vec<std::net::IpAddr> = lookup_host(hostname).unwrap();
         println!("IPv4: {},", ips[0].to_string());
         return;
     })
     .is_err();
 
-    if _panics {
+    if panics {
         println!("IPv4: NA,");
     }
 }

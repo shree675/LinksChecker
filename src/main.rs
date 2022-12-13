@@ -1,4 +1,5 @@
 use clap::Parser;
+use colored::Colorize;
 mod multiple;
 mod single;
 
@@ -11,7 +12,7 @@ struct Args {
     /// Checks multiple websites (space separated)
     #[clap(short = 'm', long = "multiple", value_delimiter = ',')]
     sites: Option<Vec<String>>,
-    /// Adds more details to the responses
+    /// Adds more details to the response
     #[clap(short = 'd', long = "detail", action)]
     detail: bool,
 }
@@ -19,11 +20,12 @@ struct Args {
 fn main() {
     let args = Args::parse();
 
-    assert_ne!(
-        (args.site != None) || (args.sites != None),
-        false,
-        "\nError: Specify at least one flag and one argument.\n\nFor more information try '--help'\n"
-    );
+    if args.site == None && args.sites == None {
+        let msg =
+            format!("Expected at least one valid argument.\n\nFor more information try '--help'");
+        eprint!("{}: {}\n", "error".bright_red(), msg);
+        return;
+    }
     print!("\n");
 
     let mut detailed = false;
