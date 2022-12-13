@@ -9,7 +9,7 @@ struct Args {
     /// Checks a single website
     #[clap(short = 's', long = "single")]
     site: Option<String>,
-    /// Checks multiple websites (space separated)
+    /// Checks multiple websites (comma separated)
     #[clap(short = 'm', long = "multiple", value_delimiter = ',')]
     sites: Option<Vec<String>>,
     /// Adds more details to the response

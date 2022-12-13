@@ -28,7 +28,6 @@ pub fn run(site: String, detailed: bool) {
             }
             println!("completed in {}s", duration.as_secs_f32());
         }
-
         println!("------------------");
     })
 }
